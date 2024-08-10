@@ -1,0 +1,291 @@
+@font-face {
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/Mulish-VariableFont_wght.ttf');
+    /* unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; */
+}
+
+.aext-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    border: 1px solid #eeeeee;
+    border-radius: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px 50px rgb(255 96 30 / 33%);
+    cursor: pointer;
+    padding: 8px;
+    z-index: 99999999;
+}
+
+
+.aextPanel,
+.aextPanel * {
+    font-size: 0.9rem;
+    font-family: 'Mulish', sans-serif;
+}
+
+.aextPanel .jsPanel-titlebar .jsPanel-title {
+    font-variant: normal;
+    font-weight: bold;
+}
+
+.aextPanel [data-tooltip] {
+    z-index: 2;
+    position: relative
+}
+
+.aextPanel [data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .2s ease-out;
+    transform: translate(-50%, 5px)
+}
+
+.aextPanel [data-tooltip]:before {
+    min-width: 70px;
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    background-color: teal;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    padding: 7px;
+    font-size: 14px;
+    line-height: 1.2;
+    transition: all .2s ease-out;
+    position: absolute;
+    bottom: 100%;
+    left: 50%
+}
+
+.aextPanel [data-tooltip]:after {
+    width: 0;
+    content: " ";
+    border-top: 5px solid teal;
+    border-left: 5px solid #0000;
+    border-right: 5px solid #0000;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    bottom: 100%;
+    left: 50%
+}
+
+.aextPanel [data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%)
+}
+
+.aextPanel [data-tooltip=false]:hover:before,
+[data-tooltip=false]:hover:after {
+    visibility: hidden;
+    opacity: 0
+}
+
+
+.aextPanel .jsPanel-headerlogo {
+    padding-left: 8px;
+}
+
+.aextPanel .jsPanel-content {
+    padding: 20px;
+}
+
+
+.aextPanel .aext-meta-wraper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    grid-gap: 20px;
+}
+
+/* .aextPanel .aext-meta-wraper>div {
+    border: 3px solid #000;
+    padding: 15px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+} */
+
+.aextPanel .aext-meta-wraper>div {
+    flex: 1 1 auto;
+}
+
+
+.aextPanel table {
+    margin: 20px 0px;
+}
+
+.aextPanel table td,
+.aextPanel table th {
+    border: 1px solid gray;
+}
+
+.aextPanel table,
+.aextPanel table th,
+.aextPanel .extbb td {
+    border: 1px solid gray !important;
+}
+
+.aextPanel table th {
+    padding: 8px !important;
+}
+
+.aextPanel table td {
+    padding: 4px 8px !important;
+}
+
+.aextPanel table thead {
+    background: #0168f8;
+    color: #fff;
+}
+
+.aextPanel table tr:hover {
+    background: rgb(1 104 248 / 8%);
+}
+
+
+
+button.aext-copy-button {
+    border: none;
+    background: transparent;
+    padding: 5px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+
+button.aext-copy-button:hover {
+    background: rgb(101 99 255 / 25%);
+}
+
+button.aext-copy-button svg {
+    width: 100%;
+    display: block;
+}
+
+
+table.aext-related-products img {
+    max-width: 32px;
+    max-height: 32px;
+}
+
+table.aext-related-products td {
+    vertical-align: middle;
+}
+
+
+.aextPanel table tr.loading {
+    animation: 2s cubic-bezier(.4, 0, .6, 1) infinite pulse;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: .3
+    }
+}
+
+
+
+
+.aextPanel .bloading {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.aextPanel .bloading p {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.aextPanel .lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.aextPanel .lds-ring div {
+    --o-color: #0168f8;
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid var(--o-color);
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: var(--o-color) transparent transparent transparent;
+}
+
+.aextPanel .lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.aextPanel .lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.aextPanel .lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.aext-related-product {
+    font-weight: bold;
+    border: 3px solid #0168f8;
+    /* background: rgb(1 104 248 / 20%); */
+    background: #0168f8;
+    /* color: #0168f8; */
+    color: white;
+    padding: 8px 20px;
+    border-radius: 14px;
+    margin-bottom: 13px;
+    transition: all ease 0.1s;
+}
+
+.aext-related-product:hover {
+    color: #FE6424;
+    background: rgb(254 100 36 / 20%);
+    border-color: #FE6424;
+}
+
+
+.aextPanel .ii {
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 13px;
+    line-height: 16px;
+    display: inline-block;
+    text-align: center;
+}
